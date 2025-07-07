@@ -13,7 +13,16 @@ public class StreamFunction {
         List<Integer> numbers = Arrays.asList(3, 2, 2, 3, 7, 3, 5);
 
 
-        List<String> word=Arrays.asList("java","oracle","Microservice","Api");
+        List<String> word=Arrays.asList("java","oracle","Microservice","Api","abc");
+
+        String str="manish";
+
+
+        objects.stream().filter(word::contains).forEach(System.out::println);
+
+        objects.stream().filter(str::equalsIgnoreCase).distinct().forEach(System.out::println);
+
+        objects.stream().map(s -> s.length()>2).collect(Collectors.toList()).forEach(System.out::println);
 
 //        Collections.sort(word,Comparator.comparing(String::));
 
@@ -21,28 +30,28 @@ public class StreamFunction {
 
         Collections.sort(employees,Comparator.comparing(Employee::getSalary));
 
-        System.out.println(employees);
+//        System.out.println(employees);
 
         Optional<String> optionalS=word.stream().reduce((a,b)-> a.compareTo(b)==0?a:b);
 
         optionalS.ifPresent(System.out::println);
 
-        Optional<Integer> sum = numbers.stream()
-                .reduce((a, b) -> a + b);
-        sum.ifPresent(System.out::println);
+//        Optional<Integer> sum = numbers.stream()
+//                .reduce((a, b) -> a + b);
+//        sum.ifPresent(System.out::println);
 
 //        objects.forEach(System.out::println);
 
         List<String> newObject=objects.stream().filter(s->s.startsWith("a")).collect(Collectors.toList());
 
-        System.out.println(newObject);
+//        System.out.println(newObject);
 
 //        objects.stream().filter(s->);
 
 
         List<Integer> newNumbers=numbers.stream().map(i->i*i).distinct().collect(Collectors.toList());
 
-        System.out.println(newNumbers);
+//        System.out.println(newNumbers);
 
 
 
